@@ -6,6 +6,7 @@ body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f4f4f4;
+  /* ---- LÍNEA A RESTAURAR ---- */
   background-image: url('https://www.transparenttextures.com/patterns/fabric-of-squares.png');
   color: #111;
 }
@@ -15,9 +16,9 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  background: var(--color-white);
+  background-color: #f4f4f4;
   color: var(--color-black);
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem; /* CAMBIO: Se redujo el padding vertical de 1rem a 0.5rem */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -50,17 +51,20 @@ nav a:hover {
   color: var(--color-red-main);
 }
 
+/* Busca esta regla que modificamos antes */
 main {
-  padding: 100px 2rem 2rem; /* para que no quede tapado el header fijo */
-  background-color: var(--color-black);
-  min-height: 200vh; /* para scroll */
+  padding-top: 100px; 
+  padding-left: 0;
+  padding-right: 0;
+  /* ---- CAMBIO: haz que el fondo sea transparente ---- */
+  background-color: transparent; 
+  min-height: 200vh;
 }
-
 .button-container {
   display: flex;
   background-color: black;
   width: 30vh;
-  height: 5vh;
+  height: 40px; /* CAMBIO: Se cambió la altura de 5vh a 40px para un control más preciso */
   align-items: center;
   justify-content: space-around;
   border-radius: 5px;
@@ -93,7 +97,7 @@ main {
 /* título principal */
 h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 4rem;
+  font-size: 2.8rem; /* CAMBIO: Se redujo el tamaño de la fuente de 4rem a 2.8rem */
   letter-spacing: 0.05em;
   margin: 0;
 }
@@ -188,4 +192,197 @@ h1 {
 .acciones-derecha .Btn {
   justify-self: end;
 }
+
+/* =================================== */
+/* ==== ESTILOS PARA EL BODY NUEVO ==== */
+/* =================================== */
+
+/* Ajuste general del main */
+main {
+  padding-top: 100px; /* Asegura que el contenido no quede bajo el header fijo */
+  padding-left: 0;
+  padding-right: 0;
+  background-color: #ffffff; /* Un fondo blanco limpio */
+  min-height: 200vh; /* para scroll */
+}
+
+/* 1. Estilos para la cinta de promoción */
+.promo-banner {
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+  padding: 0.8rem 1rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+.promo-banner p {
+  margin: 0;
+}
+
+/* 2. Estilos para la imagen principal (Hero Section) */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 70vh; /* Altura de la sección */
+  overflow: hidden;
+}
+.hero-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra todo el espacio */
+  filter: brightness(0.7); /* Oscurece un poco la imagen para que el texto resalte */
+}
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+.hero-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  margin: 0 0 0.5rem 0;
+}
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+.btn-principal {
+  background-color: #fff;
+  color: #111;
+  padding: 12px 25px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.btn-principal:hover {
+  background-color: #e6aafa;
+  color: #fff;
+}
+
+/* 3. Estilos para la correa de texto en movimiento */
+.scrolling-text-container {
+  background-color: #f4f4f4;
+  padding: 1rem 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  
+  /* ---- NUEVO: MÁSCARA PARA EL DEGRADADO ---- */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+.scrolling-text {
+  /* ---- CAMBIO: Duplicamos el ancho para el contenido duplicado ---- */
+  width: 200%; 
+  display: flex; /* Usamos flex para asegurar la alineación */
+  
+  /* ---- CAMBIO: Ajustamos la animación para el bucle perfecto ---- */
+  animation: scroll-left 40s linear infinite;
+}
+.scrolling-text span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 2rem;
+  white-space: nowrap; /* Evita que el texto se parta */
+}
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0); /* Empieza en la posición inicial */
+  }
+  100% {
+    /* Mueve el texto una vez la longitud del contenido original */
+    transform: translateX(-50%); 
+  }
+}
+
+/* 4. Estilos para la sección de categorías */
+.category-section {
+  padding: 4rem 2rem;
+  background-color: #fff;
+}
+.category-title {
+  text-align: center;
+}
+
+.category-title h3 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-family: 'Playfair Display', serif;
+  color: #111;
+}
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+.category-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  height: 400px;
+}
+.category-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.category-card:hover img {
+  transform: scale(1.05); /* Un hover más sutil */
+}
+.category-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinea todo a la izquierda */
+  background: none; /* Quitamos el fondo degradado para que se vea la imagen completa */
+}
+.category-card-overlay .text-content {
+  color: #000; /* Texto negro */
+  
+  /* ---- ESTA ES LA CLAVE PARA QUE EL TEXTO RESALTE ---- */
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.7), 0 0 2px rgba(255, 255, 255, 0.7);
+}
+
+.category-card-overlay .text-content span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: block;
+}
+
+.category-card-overlay .text-content p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0.25rem 0 1rem 0;
+}
+
+.category-card-overlay h4 {
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem 0;
+  font-family: 'Playfair Display', serif;
+}
+.btn-secundario {
+  background-color: #111; /* Botón negro */
+  color: #fff; /* Texto del botón blanco */
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none; /* Quitamos el borde */
+  border-radius: 5px;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+.btn-secundario:hover {
+  background-color: #333; /* Un gris oscuro al pasar el mouse */
+}
+
 
