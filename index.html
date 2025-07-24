@@ -69,15 +69,114 @@
     </header>
   </section>
 
-  <main>
-    <p style="margin-top: 1500px;">Scroll down para probar el header fijo</p>
-  </main>
+  
+<main>
+    <div class="promo-banner">
+      <p>
+        SOLO POR HOY: ENVÍOS GRATIS DURANTE TODO
+        <span id="mes-actual"></span>
+      </p>
+    </div>
 
+    <section class="hero-section">
+      <img
+        src="https://images.pexels.com/photos/3756885/pexels-photo-3756885.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        alt="Modelo con ropa estilo casual y moderno"
+      />
+      <div class="hero-text">
+        <h2>Colección Invierno 2025</h2>
+        <p>Descubre prendas únicas que definen tu estilo.</p>
+        <a href="#" class="btn-principal">Ver Colección</a>
+      </div>
+    </section>
+
+    <div class="scrolling-text-container">
+  <div class="scrolling-text">
+    <span>NUEVOS ARRIBOS CADA SEMANA</span>
+    <span>✨</span>
+    <span>SUSCRÍBETE Y OBTÉN UN 10% OFF</span>
+    <span>✨</span>
+    <span>COLECCIÓN DE VERANO YA DISPONIBLE</span>
+    <span>✨</span>
+    <span>SÍGUENOS EN INSTAGRAM @ZAYRAMARKET</span>
+    <span>✨</span>
+    <span>NUEVOS ARRIBOS CADA SEMANA</span>
+    <span>✨</span>
+    <span>SUSCRÍBETE Y OBTÉN UN 10% OFF</span>
+    <span>✨</span>
+    <span>COLECCIÓN DE VERANO YA DISPONIBLE</span>
+    <span>✨</span>
+    <span>SÍGUENOS EN INSTAGRAM @ZAYRAMARKET</span>
+    <span>✨</span>
+  </div>
+</div>
+
+    <section class="category-section">
+  <div class="category-title">
+
+  </div>
+  <div class="category-grid">
+    <div class="category-card">
+      <img
+        src="images/imagen tienda.webp"
+        alt="Belleza y Cuidado Personal"
+      />
+      <div class="category-card-overlay">
+        <div class="text-content">
+          <span>Belleza & Cuidado Personal</span>
+          <p>Rutinas que transforman. Resultados reales.</p>
+        </div>
+        <a href="#" class="btn-secundario">Ver productos</a>
+      </div>
+    </div>
+    <div class="category-card">
+      <img
+        src="images/imagen tienda 1.webp"
+        alt="Accesorios"
+      />
+      <div class="category-card-overlay">
+        <div class="text-content">
+          <span>Accesorios y complementos</span>
+          <p>Detalles que elevan tu estilo y marcan la diferencia.</p>
+        </div>
+        <a href="#" class="btn-secundario">Ver productos</a>
+      </div>
+    </div>
+    <div class="category-card">
+      <img
+        src="images/imagen tienda 2.webp"
+        alt="Tecnología"
+      />
+      <div class="category-card-overlay">
+        <div class="text-content">
+          <span>Tecnología & Gadgets</span>
+          <p>Innovación práctica para tu día a día.</p>
+        </div>
+        <a href="#" class="btn-secundario">Ver productos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <p style="margin-top: 50px">Scroll down para probar el header fijo</p>
+</main>
+  
   <script>
     function cerrarSesion() {
       localStorage.removeItem('logueado');
       window.location.href = 'login.html';
     }
   </script>
+  <script>
+    // ... tu función cerrarSesion() existente ...
+
+    // NUEVO SCRIPT para el mes actual
+    document.addEventListener('DOMContentLoaded', function() {
+      const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+      const fecha = new Date();
+      document.getElementById('mes-actual').textContent = meses[fecha.getMonth()].toUpperCase();
+    });
+  </script>
+</body>
 </body>
 </html>
